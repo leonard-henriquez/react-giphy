@@ -12,12 +12,12 @@ export default class App extends Component {
 
     this.state = {
       gifs: [],
-      selectedGifId: null,
+      selectedGifId: '',
     };
   }
 
   search = (query) => {
-    const url = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${query}&limit=25&offset=0&rating=G&lang=en`;
+    const url = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${query}&limit=8&offset=0&rating=G&lang=en`;
     fetch(url)
       .then(res => res.json())
       .then(({ data }) => this.setState({ gifs: data }));

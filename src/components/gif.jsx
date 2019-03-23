@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Gif = ({ id }) => {
-  if (! id) {
+  if (!id) {
     return null;
   }
 
