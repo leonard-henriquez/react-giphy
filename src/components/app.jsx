@@ -17,10 +17,10 @@ export default class App extends Component {
   }
 
   search = (query) => {
-    const url = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${query}&limit=25&offset=0&rating=G&lang=en`
+    const url = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${query}&limit=25&offset=0&rating=G&lang=en`;
     fetch(url)
       .then(res => res.json())
-      .then(res => this.setState({ gifs: res.data }));
+      .then(({ data }) => this.setState({ gifs: data }));
   }
 
   select = (id) => {
@@ -28,16 +28,18 @@ export default class App extends Component {
   }
 
   render() {
+    const { gifs, selectedGifId } = this.state;
+    const { select } = this.props;
     return (
       <div>
         <div className="left-scene">
           <SearchBar search={this.search} />
           <div className="selected-gif">
-            <Gif id={this.state.selectedGifId} />
+            <Gif id={selectedGifId} />
           </div>
         </div>
         <div className="right-scene">
-          <GifList className="gif-list" gifs={this.state.gifs} select={this.props.select} />
+          <GifList className="gif-list" gifs={gifs} select={select} />
         </div>
       </div>
     );
