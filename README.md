@@ -1,30 +1,35 @@
-# react-boilerplate
+# React Giphy ![language](https://img.shields.io/badge/language-javascript-blue.svg)
 
-Simple react starter with the following config:
+> A simple React front-end for Giphy's API
 
-- React, ReactDOM
-- Webpack 4
-- Babel with es2015 and react presets
-- Bootstrap (css only, loaded from a cdn in `index.html`)
-- work with `.js` or `.jsx` files
-- main `application.scss` stylesheet is imported in `index.js` as a module to enjoy hot reloading
+## :books: Table of Contents
 
-## Scripts
+- [Installation](#package-installation)
+- [Usage](#rocket-usage)
+- [Support](#hammer_and_wrench-support)
+- [Contributing](#memo-contributing)
+- [License](#scroll-license)
 
-To start the local Webpack Dev Server (usually on port `8080`):
+## :package: Installation
 
-```bash
+```sh
+yarn install
+```
+
+## :rocket: Usage
+
+```sh
 yarn start
 ```
 
-To lint all JavaScript files in the `src` folder:
+## :hammer_and_wrench: Support
 
-```bash
-yarn lint
-```
+Please [open an issue](https://github.com/leonard-henriquez/react-giphy/issues/new) for support.
 
-To build and deploy your app to `gh-pages` branch on the GitHub repo:
+## :memo: Contributing
 
-```bash
-yarn deploy
-```
+Please contribute using [Github Flow](https://guides.github.com/introduction/flow/). Create a branch, add commits, and [open a pull request](https://github.com/leonard-henriquez/react-giphy/compare/).
+
+## :scroll: License
+
+[GNU GPLv3](LICENSE) © [Leonard Henriquez](https://github.com/leonard-henriquez)
