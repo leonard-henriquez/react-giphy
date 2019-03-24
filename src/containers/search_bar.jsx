@@ -1,6 +1,7 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
+
 import { setQuery, search } from '../actions/index';
 
 class SearchBar extends Component {
@@ -36,17 +37,17 @@ class SearchBar extends Component {
   }
 }
 
+function mapStateToProps(state) {
+  return {
+    query: state.query
+  };
+}
+
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(
     { setQuery, search },
     dispatch
   );
-}
-
-function mapStateToProps(state) {
-  return {
-    query: state.query
-  };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchBar);

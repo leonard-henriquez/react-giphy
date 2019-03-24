@@ -5,14 +5,14 @@ import SearchBar from './search_bar';
 import Gif from '../components/gif';
 import GifList from './gif_list';
 
-const App = ({ gifs }) => {
+const App = ({ gifs, selectedGif }) => {
   const id = (gifs && gifs.length) ? gifs[0].id : null;
   return (
     <div>
       <div className="left-scene">
         <SearchBar />
         <div className="selected-gif">
-          <Gif id={id} />
+          <Gif id={selectedGif} />
         </div>
       </div>
       <div className="right-scene">
@@ -24,7 +24,8 @@ const App = ({ gifs }) => {
 
 function mapStateToProps(state) {
   return {
-    gifs: state.gifs
+    gifs: state.gifs,
+    selectedGif: state.selectedGif,
   };
 }
 

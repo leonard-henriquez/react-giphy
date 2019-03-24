@@ -21,3 +21,12 @@ export function search(query) {
     payload: promise
   };
 }
+
+const SELECT_GIF = 'SELECT_GIF';
+
+export function selectGif(id) {
+  return {
+    type: SELECT_GIF,
+    payload: id,
+  };
+}

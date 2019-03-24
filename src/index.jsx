@@ -9,12 +9,14 @@ import App from './containers/app';
 
 import queryReducer from './reducers/query_reducer';
 import gifsReducer from './reducers/gifs_reducer';
+import selectedGifReducer from './reducers/selected_gif_reducer';
 
 import '../assets/stylesheets/application.scss';
 
 const reducers = combineReducers({
   query: queryReducer,
   gifs: gifsReducer,
+  selectedGif: selectedGifReducer,
 });
 
 const middlewares = applyMiddleware(reduxPromise, logger);

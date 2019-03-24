@@ -1,20 +1,41 @@
-import React from 'react';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import React, { Component } from 'react';
+
+import { selectGif } from '../actions/index';
 
 import Gif from '../components/gif';
 
-const GifList = ({ gifs }) => {
-  if (!gifs || !gifs.length) {
+
+class GifList extends Component {
+  shouldComponentUpdate(nextProps, nextState) {
+    const { gifs } = this.props;
+    return gifs !== nextProps.gifs;
+  }
+
+  // handleClick = () => {
+  //   console.log(this);
+  // }
+
+  render() {
+    const { gifs, selectGif } = this.props;
+    if (!gifs || !gifs.length) {
+      return (
+        <div className="gif-list" />
+      );
+    }
+
     return (
-      <div className="gif-list" />
+      <div className="gif-list">
+        {
+          gifs.map(({ id }) => {
+            return <div><Gif id={id} key={id} className="blue" onClick={() => selectGif(id)} /></div>;
+          })
+        }
+      </div>
     );
   }
-  return (
-    <div className="gif-list">
-      { gifs.map(({ id }) => <div><Gif id={id} key={id} /></div>) }
-    </div>
-  );
-};
+}
 
 function mapStateToProps(state) {
   return {
@@ -22,4 +43,11 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, null)(GifList);
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(
+    { selectGif },
+    dispatch
+  );
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(GifList);
