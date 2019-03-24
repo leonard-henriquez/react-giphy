@@ -13,7 +13,7 @@ class SearchBar extends Component {
     const { value } = e.target;
     const { setQuery } = this.props;
     setQuery(value);
-    setTimeout(() => this.setSearchCallback(value), 1000);
+    setTimeout(() => this.setSearchCallback(value), 300);
   }
 
   setSearchCallback = (lastValue) => {
