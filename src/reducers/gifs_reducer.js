@@ -1,10 +1,12 @@
+import { SEARCH } from '../actions/index';
+
 export default function (state, action) {
   if (state === undefined) {
     return [];
   }
 
   switch (action.type) {
-    case 'SEARCH':
+    case SEARCH:
       return action.payload;
     default:
       return state;
